@@ -1,0 +1,8 @@
+DOM definitions
+http://www.w3schools.com/js/js_htmldom.asp
+DOM is copy of the code from the server is not the code of the server (cross browser, device and OS optimisation)
+- connect to the external website when typing www.google.com
+- download all the files related to the website
+- structure the files folder - file tree (in web development tools is the Sources Tab)
+- read the code in order to display it as web page design (not the code) (if the code has some errors, the DOM will try to interpret it (trying to fix it) in order to show valid code)
+

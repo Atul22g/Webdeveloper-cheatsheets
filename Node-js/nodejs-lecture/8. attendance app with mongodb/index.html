@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+</head>
+
+<body style="margin-top: 10px; margin-left: 10px;">
+
+    <h1>Add Student:</h1>
+
+
+    <form onsubmit="addStudent(); return false;" class="row g-3" style="width: 400px;">
+        <div class="col-md-6">
+            <label for="input1" class="form-label">Name</label>
+            <input type="text" class="form-control" id="input1">
+        </div>
+        <div class="col-md-6">
+            <label for="input2" class="form-label">Class name</label>
+            <input type="text" class="form-control" id="input2">
+        </div>
+        <div class="col-12">
+            <label for="input3" class="form-label">Roll Number</label>
+            <input type="text" class="form-control" id="input3" placeholder="1234 Main St">
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Add Student </button>
+        </div>
+    </form>
+
+
+
+
+
+
+    <h4 id="result"></h4>
+
+    <br />
+    <br />
+    <br />
+
+    <button onclick="getAllStudents()" class="btn btn-dark">Get All Post</button>
+
+    <br />
+    <br />
+
+    <div id="posts"></div>
+
+
+
+
+
+    <hr>
+    <hr>
+
+    <form onsubmit="getAttendance(); return false;">
+
+        Select date: <input required type="date" id="dateInput">
+        <button type="submit">Get Attendance</button>
+
+    </form>
+
+    <br>
+
+    <div id="att"></div>
+
+
+
+
+    <script>
+        const baseUrl = "http://localhost:3000";
+        // const baseUrl = "https://yourappname.herokuapp.com";
+
+        function addStudent() {
+            let studentName = document.getElementById("input1").value;
+            let studentClass = document.getElementById("input2").value;
+            let studentRoll = document.getElementById("input3").value;
+
+            var result = document.getElementById("result");
+
+            axios.post(`${baseUrl}/student`, {
+                studentName: studentName,
+                studentClass: studentClass,
+                studentRoll: studentRoll,
+            })
+                .then(function (response) {
+                    let responseData = response.data
+                    console.log("responseData: ", responseData);
+                    result.innerText = responseData;
+
+                    getAllStudents();
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+        }
+
+        function getAllStudents() {
+            var posts = document.getElementById("posts");
+
+            axios.get(`${baseUrl}/students`)
+                .then(function (response) {
+                    let responseData = response.data
+                    console.log("responseData: ", responseData);
+
+                    posts.innerHTML = "";
+
+                    responseData.map(eachStudent => {
+                        posts.innerHTML = `
+                        <div class="card" style="width: 18rem;" id="${eachStudent._id}">
+                            <div class="card-body">
+                                <h5 class="card-title">${eachStudent.studentName}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">${eachStudent._id}</h6>
+                                <p class="card-text">Class: ${eachStudent.studentClass} </p>
+                                <p class="card-text">Roll# ${eachStudent.studentRoll} </p>
+                                <button href="#" class="btn btn-primary" onclick="markAttendance('${eachStudent._id}', '${eachStudent.studentName}')">Mark Present</button>
+                            </div>
+                        </div>
+                        <hr />  
+                        <br />` + posts.innerHTML;
+                    })
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+        }
+        getAllStudents();
+
+        function deletePost(id) {
+
+            axios.delete(`${baseUrl}/post/${id}`)
+                .then(function (response) {
+                    let responseData = response.data
+                    console.log("responseData: ", responseData);
+                    result.innerText = responseData;
+
+                    getAllStudents();
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+        }
+
+        // function updatePost(id) {
+
+        //     let newPost = prompt("please enter new text for that post");
+
+        //     axios.put(`${baseUrl}/post/${id}`, { text: newPost })
+        //         .then(function (response) {
+        //             let responseData = response.data
+        //             console.log("responseData: ", responseData);
+        //             result.innerText = responseData;
+
+        //             getAllStudents();
+        //         })
+        //         .catch(function (error) {
+        //             // handle error
+        //             console.log(error);
+        //         })
+        // }
+        function updatePost(id) {
+
+            document.getElementById(id).innerHTML = `
+                <input type="text" id="${id}_text" placeholder="enter new text for this post" />
+                <button onclick="doChanges('${id}')">do changes</button>
+            `;
+        }
+        function doChanges(id) {
+
+            let newText = document.getElementById(`${id}_text`).value;
+
+            axios.put(`${baseUrl}/post/${id}`, { text: newText })
+                .then(function (response) {
+                    let responseData = response.data
+                    console.log("responseData: ", responseData);
+                    result.innerText = responseData;
+
+                    getAllStudents();
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+        }
+
+        function markAttendance(id, name) {
+
+            axios.post(`${baseUrl}/attendance`, {
+                studentId: id,
+                studentName: name,
+                isPresent: true
+            })
+                .then(function (response) {
+                    let responseData = response.data
+                    console.log("responseData: ", responseData);
+                    result.innerText = responseData;
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+        }
+
+        function getAttendance() {
+            var date = document.getElementById("dateInput").value;
+            var att = document.getElementById("att");
+
+
+            console.log("date: ", date);
+
+            axios.get(`${baseUrl}/attendance/${date}`)
+                .then(function (response) {
+                    let responseData = response.data
+                    console.log("responseData: ", responseData);
+
+                    att.innerHTML = "";
+
+                    responseData.map(eachAtt => {
+                        att.innerHTML =
+                            `<div id="${eachAtt._id}"> 
+
+                                <p> ${eachAtt.studentName} </p>
+                                <p> ${eachAtt.isPresent} </p>
+
+                            </div>  
+                        <hr />  
+                        <br />` + posts.innerHTML;
+                    })
+                })
+                .catch(function (error) {
+                    //handle error
+                    console.log(error);
+                })
+        }
+        getAttendance();
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>

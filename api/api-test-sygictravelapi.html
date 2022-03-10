@@ -1,0 +1,50 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Api SygicTrave</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            // https://api.sygictravelapi.com
+
+            // encodeURIComponent() Function This function encodes special characters. In addition, it encodes the following characters: , / ? : @ & = + $ #
+            // https://www.w3schools.com/jsref/jsref_encodeURIComponent.asp
+
+            var result = $.ajax({
+                    url: "https://api.sygictravelapi.com/1.0/en/places/list",
+                    data: {
+                        query: "London",
+                        limit: 8,
+                    },
+                    headers: {
+                        "x-api-key": "lEoKPbust75vnILH1Ue5g34x301P6UK89wytadmk"
+                    },
+
+                    dataType: "json",
+                    type: "GET",
+                })
+                /* if the call is successful (status 200 OK) show results */
+                .done(function(result) {
+                    /* if the results are meeningful, we can just console.log them */
+                    console.log(result);
+                })
+                /* if the call is NOT successful show errors */
+                .fail(function(jqXHR, error, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(error);
+                    console.log(errorThrown);
+                });
+        });
+
+    </script>
+
+</head>
+
+<body>
+    <p>There is nothing to see here. Please check your console log instead</p>
+</body>
+
+</html>

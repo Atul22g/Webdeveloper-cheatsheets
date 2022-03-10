@@ -1,0 +1,60 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Api TripAdvisor</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            //tripadvisor.com Api Documentation (NOT AVAILABLE for Academic projects)
+
+            // NOTE the TripAdvisor Content API is intended for consumer-facing (B2C) websites & apps only.
+
+            // https://developer-tripadvisor.com/content-api/documentation/location/
+            // https://developer-tripadvisor.com/content-api/documentation/location_mapper/
+
+
+            // encodeURIComponent() Function This function encodes special characters. In addition, it encodes the following characters: , / ? : @ & = + $ #
+            // https://www.w3schools.com/jsref/jsref_encodeURIComponent.asp
+
+
+            // In this example, if you make an ajax request to the following website
+            var myUrl = 'http://api.tripadvisor.com/api/partner/2.0/map/89575/attractions?key=89DE2CFC0C1C43978B484B55F9A514EC';
+
+            // However to make it work, we are going to use the cors-anywhere free service to bypass this
+            var proxy = 'https://cors-anywhere.herokuapp.com/';
+
+
+            var result = $.ajax({
+                    url: proxy + myUrl,
+                    type: "GET",
+                    dataType: 'json',
+                    crossDomain: true,
+                    headers: {
+                        'Access-Control-Allow-Origin': "*"
+                    }
+                })
+                /* if the call is successful (status 200 OK) show results */
+                .done(function(result) {
+                    /* if the results are meeningful, we can just console.log them */
+                    console.log(result);
+                })
+                /* if the call is NOT successful show errors */
+                .fail(function(jqXHR, error, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(error);
+                    console.log(errorThrown);
+                });
+        });
+
+    </script>
+
+</head>
+
+<body>
+    <p>There is nothing to see here. Please check your console log instead</p>
+</body>
+
+</html>

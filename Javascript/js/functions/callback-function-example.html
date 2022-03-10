@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>Callback Function Example</title>
+
+    <style>
+        p {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+
+    <script>
+        //more details here https://www.impressivewebs.com/callback-functions-javascript/
+        //a callback is function which gets to be sent as paramenter to anoter function in order to be used after the initial function ran
+
+        //1. DEFINE a function with 2 paramenters as strings and the 3rd parameter as a function
+        function mySandwich(param1, param2, callback) {
+            //run the parent function first
+            alert('Started eating my sandwich.\n\nIt has: ' + param1 + ', ' + param2);
+
+            //if the callback is defined and if it is a function ...
+            if (callback && typeof (callback) === "function") {
+                //run the call back function too
+                callback();
+            }
+        }
+        //2. USE the function with 2 paramenters as strings (example: 'ham', 'cheese') and the 3rd parameter as a function (example: function () { alert('Finished eating my sandwich.'); })
+        mySandwich('ham', 'cheese', function () {
+            alert('Finished eating my sandwich.');
+        });
+    </script>
+
+</head>
+
+<body>
+    <p id="sandwich">A delicious callback function example.</p>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+body {
+    border: 3px solid white;
+}
+
+
+/* desktop first approach = (the website was built initialy for desktop and will be adapted for mobiles)
+Even if this approach requires more work in the long run, it is used often in order to develop and Minimum Voable Product with the least amount of initial investment
+*/
+
+/* acting like an IF statement, the media query is a set of conditions in which the containing css will be applied
+for example the statament above says: IF the media on which this CSS is going to used is SCREEN (Mobiles, Tables, Laptops, Desktops or Projectors) and the maximum resolution of that device is 1024px, THEN apply the body color blue for all the text
+*/
+
+/*large desktop*/
+@media only screen and (max-width: 1600px) {
+    body {
+        border: 3px solid yellow;
+    }
+}
+
+/*iPad lanscape / small laptop*/
+@media only screen and (max-width: 1024px) {
+    body {
+        border: 3px solid blue;
+    }
+}
+
+/*iPad potrait*/
+@media only screen and (max-width: 768px) {
+    body {
+        border: 3px solid red;
+    }
+}
+
+/*Android landscape*/
+@media only screen and (max-width: 640px) {
+    body {
+        border: 3px solid pink;
+    }
+}
+
+/*iPhone landscape*/
+@media only screen and (max-width: 480px) {
+    body {
+        border: 3px solid green;
+    }
+}
+
+/*iPhone portrait*/
+@media only screen and (max-width: 320px) {
+    body {
+        border: 3px solid purple;
+    }
+}
+
+
+
+/* mobile first approach = (the website was built initialy for mobiles and it will be adapted for desktop)
+This is the ideal way to built websites because it is much easier to adapt from a small screen and low computing power (mobiles) to a large screen and high computing power (desktops)
+*/
+
+
+/*iPhone portrait*/
+@media only screen and (min-width: 320px) {
+    body {
+        border: 3px solid purple;
+    }
+}
+
+/*iPhone landscape*/
+@media only screen and (min-width: 480px) {
+    body {
+        border: 3px solid green;
+    }
+}
+
+/*Android landscape*/
+@media only screen and (min-width: 640px) {
+    body {
+        border: 3px solid pink;
+    }
+}
+
+/*iPad potrait*/
+@media only screen and (min-width: 768px) {
+    body {
+        border: 3px solid red;
+    }
+}
+
+/*iPad lanscape / small laptop*/
+@media only screen and (min-width: 1024px) {
+    body {
+        border: 3px solid blue;
+    }
+}
+
+/*large desktop*/
+@media only screen and (min-width: 1600px) {
+    body {
+        border: 3px solid yellow;
+    }
+}

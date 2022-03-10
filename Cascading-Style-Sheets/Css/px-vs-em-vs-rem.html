@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* https://www.futurehosting.com/blog/web-design-basics-rem-vs-em-vs-px-sizing-elements-in-css/
+
+        The pixel
+        You’re looking at a monitor which is comprised of lots of tiny dots that are used to make up an image. These are pixels. Or rather, they’re what people usually mean when they talk about pixels. Pixels (px) in CSS do not mean the same thing as pixels on your monitor —in fact, they’re a non-linear angular measurement. It doesn’t really matter what that means and it seems people like to argue about what exactly it does mean, but you do need to understand that pixels are an absolute unit of measurement. Absolute means that they are the same size regardless of the size of anything else (that will make more sense in second). In practice, they aren’t the same length everywhere because different devices treat them differently, but on each device a pixel is always the same. 16px on your laptop monitor is not the same as 16px on your iPad. Pixels are absolute but not consistent.
+
+
+        The em
+        Ems are a relative measure of length. The size of an em is relative to the font-size of its parent element. If you have a <div> with the font size is set to 16px, and a <p> element inside that div with a font-size set to 2em, the font-size of text in the <p> will be 32px; set it to 0.5px, and the font-size will be 8px.
+        This is useful because it lets you change the absolute size of elements like the font-size without changing their size relative to each other. Lets say you set the font-size of <div> to 22px. Inside that <div> you have a <p> with the width set to 200em, the margins set to 3em, and the font-size set to 0.8em. If you wanted to halve the size of that <p>, you could simply change the font-size on the surrounding <div> to 11px and the width, margins, and font-size on the <p> would scale accordingly.
+        As you might imagine, this is great for responsive design, where you can set breakpoints for device screen sizes with media queries, change the absolute px measure for elements at different break points, and have all the em-measured elements resize for you — it makes responsive CSS much easier to write and maintain.
+
+
+        The rem
+        Ems have a problem. Because everything is sized relative to its parent element, the meaning of an em changes as elements are nested. If we take the same scenario we discussed above: a <div> with a font-size of 22px containing a <p> with an font-size of 0.5 em but add a <blockquote> inside the <p> with a font size of 0.5em too, the result might not be what we want. The font-size in the <p> will be equal to 11px, but the font-size inside the <blockquote> would be half of that again, because em is relative the immediate ancestor (the paragraph), not the div.
+        Rems, root ems, are always relative to the font-size of the <html> element. It doesn’t matter how deeply nested an element is, its rem lengths will always be a proportion of the font-size of <html>.
+        Rems are awesome in theory, and mostly awesome in practice. There are some cases where simple proportional scaling doesn’t work out quite right — some text gets too small or too large relative to the surrounding text. Chris Coyer has an excellent article over on CSS tricks that details how he prefers to use a mix of all three.
+
+        Px, rems, and ems are the most commonly used measures of length in CSS, but there are a lot more available to use if you want to (you almost certainly shouldn’t want to), which you can check out in this article.
+        */
+
+        body {
+            text-align: center;
+            font-size: 20px;
+            /*if body font-size is not specified, by default is going to be 16px */
+        }
+        /*
+        h1 in "em"
+        is caculated in % of size relative to the imediate parent (1.5 em = 150%) (in this case the body)
+         */
+
+        h1 {
+            color: aquamarine;
+            font-size: 2em;
+            /* 200% * 20px = 40px */
+        }
+        /*
+        h1 in "rem"
+        is caculated in % of size relative to the body font size (1.5 rem = 150%)
+        */
+
+        h1 {
+            color: aquamarine;
+            font-size: 2rem;
+            /* 200% * 20px = 40px */
+        }
+        /*
+        span in "em"
+        as the span is the child of the h1, it is caculated in % of size relative to the imediate parent (in this case the h1)
+        */
+
+        h1 span {
+            color: aqua;
+            font-size: 3em;
+            /* 300% * 40px = 120px */
+        }
+        /*
+        span in "rem"
+        is caculated in % of size relative to the body font size (independent of the imediate parent)
+        */
+
+        h1 span {
+            color: aqua;
+            font-size: 3rem;
+            /* 300% * 20px = 60px */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to <span> some great website</span></h1>
+</body>
+
+</html>

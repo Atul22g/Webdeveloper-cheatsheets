@@ -1,0 +1,1 @@
+document.all[10].textContent = 'Hello';

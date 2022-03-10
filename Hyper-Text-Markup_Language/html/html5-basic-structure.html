@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!--
+        Mobile browsers like Fennec render pages in a virtual "window" (the viewport), usually wider than the screen, so they don't need to squeeze every page layout into a tiny window (which would break many non-mobile-optimized sites). Users can pan and zoom to see different areas of the page.
+        Mobile Safari introduced the "viewport meta tag" to let web developers control the viewport's size and scale. Many other mobile browsers now support this tag, although it is not part of any web standard.
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Basic HTML structure</title>
+    <meta name="description" content="Add here the website descritpion">
+    <meta name="author" content="Add here the author name">
+    <link rel="stylesheet" href="css/basic-structure-css.css" type="text/css">
+
+    <!-- add support for browsers with special needs-->
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <header>
+        <img src="logo.jpg">
+
+        <nav>
+            <ul>
+                <li>Home</li>
+
+                <li>About me</li>
+
+                <li>Contact</li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h1>Title</h1>
+
+        <p>some text here</p>
+
+        <p>some other text here</p>
+
+        <div><img src="some-image.jpg"></div>
+    </section>
+
+    <section>
+        <h2>Title2</h2>
+
+        <p>some text here2</p>
+
+        <p>some other text here2</p>
+
+        <div><img src="some-image2.jpg"></div>
+    </section>
+
+    <section>
+        <h3>Title3</h3>
+
+        <p>some text here3</p>
+
+        <p>some other text here3</p>
+
+        <div><img src="some-image3.jpg"></div>
+    </section>
+
+    <footer>
+        Copyright notice
+
+        <ul>
+            <li>Footer link 1</li>
+
+            <li>Footer link 2</li>
+
+            <li>Footer link 3</li>
+        </ul>
+
+        <div><img src="footer-logo.jpg"></div>
+    </footer>
+
+    <script src="js/scripts.js" type="text/javascript">
+    </script>
+</body>
+
+</html>

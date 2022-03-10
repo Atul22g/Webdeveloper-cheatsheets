@@ -1,0 +1,55 @@
+<html>
+<!-- Object_and_Array.html
+Copyright (c) 2013 by Dr. Herong Yang, herongyang.com
+-->
+
+<head>
+    <title>Comparing Object and Array</title>
+</head>
+
+<body>
+    <pre>
+<script type="text/javascript">
+// Creating an object of "Array" - array literal
+var bookArray = [
+    "JavaScript Tutorial",
+    "Herong Yang",
+    2008,
+    "Programming"
+];
+
+// Creating an object of "Object" - object literal
+var bookObject = {
+    title: "JavaScript Tutorial",
+    author: "Herong Yang",
+    year: 2008,
+    category: "Programming"
+};
+
+// Checking "bookArray"
+document.writeln();
+document.writeln("About the \"Array\" object:");
+document.writeln("   Type: " + (typeof bookArray));
+document.writeln("   Instance Of Object: " + (bookArray instanceof Object));
+document.writeln("   Instance Of Array: " + (bookArray instanceof Array));
+document.writeln("   Members:");
+for (var item in bookArray) {
+    document.writeln("      " + item + ": " + bookArray[item]);
+}
+
+// Checking "bookObject"
+document.writeln();
+document.writeln("About the \"Object\" object:");
+document.writeln("   Type: " + (typeof bookObject));
+document.writeln("   Instance Of Object: " + (bookObject instanceof Object));
+document.writeln("   Instance Of Array: " + (bookObject instanceof Array));
+document.writeln("   Members:");
+for (var item in bookObject) {
+    document.writeln("      " + item + ": " + bookObject[item]);
+}
+
+</script>
+</pre>
+</body>
+
+</html>
