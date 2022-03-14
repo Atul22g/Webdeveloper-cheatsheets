@@ -1,0 +1,8 @@
+
+//import the header section
+@import "./header";
+@import "./variables";
+
+.contact button {
+    background-color: $primaryBtn;
+}

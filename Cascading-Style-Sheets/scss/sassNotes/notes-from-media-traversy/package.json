@@ -1,0 +1,14 @@
+{
+  "name": "notes-from-media-traversy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w scss/ -w scss/ -o dist/css/ --recursive"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^4.13.1"
+  }
+}

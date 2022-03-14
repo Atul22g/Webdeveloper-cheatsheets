@@ -1,0 +1,22 @@
+header {
+  background-color: blue;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+header button {
+  background-color: #39bb05;
+}
+
+header button::after {
+  content: "hello";
+}
+
+.contact button {
+  background-color: #39bb05;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,68 @@
+@import 'variables'; // include variables from another file
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $light-color;
+    color: $dark-color;
+    font-family:sans-serif ;
+    line-height: 1.5;
+}
+
+header {
+    background-color: $dark-color;
+    color: $light-color;
+    padding: 1rem;
+
+    h1 {
+        text-align: center;
+    }
+}
+
+.section {
+    padding: 3rem;
+
+    h3 {
+        font-size: 2rem;
+    }
+    &-a {
+        background-color: $primary-color;
+        color: #fff;
+    }
+    &-b {
+        background-color: $secondary-color;
+        color: #fff;
+    }
+}
+
+a {
+    color: #333;
+    &:hover {
+        color: coral;
+    }
+}
+
+//Inheritance
+%btn-shared {
+    display: inline-block;
+    padding: 0.7rem 2rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+.btn {
+    &-light {
+        @extend %btn-shared;
+        background-color: $light-color;
+        color: black;
+    }
+    &-dark {
+       @extend %btn-shared;
+       background-color: $dark-color; 
+       color: white;
+    }
+}
