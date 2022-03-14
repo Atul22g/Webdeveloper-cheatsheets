@@ -52,9 +52,14 @@ Import script, styles and initialize AOS:
 ```js
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
-// ..
-AOS.init();
 ```
+```js
+const fileName = () => {
+  useEffect(() => {
+Aos.init({duration: 1000})
+  },[])
+```
+
 
 In order to make it work you'll have to make sure your build process has configured styles loader, and bundles it all correctly.
 If you're using [Parcel](https://parceljs.org/) however, it will work out of the box as provided.
