@@ -1,8 +1,8 @@
 <!-- 1 -->
-<!-- Variables -->
+<!-- Variables 5 -->
 <?php
 echo "<h1>PHP Tutuials </h1>";
-echo "<h2>This is Tutorial 5 </h2>";
+echo "<h2>Variables </h2>";
 
 echo '1. Variables are containers for storing information<br>';
 echo '2. Starts with a $<br>';
@@ -19,12 +19,11 @@ echo "$name is the real gangsta<br>";
 ?>
 
 <!-- 2 -->
-<!-- Rules of Variables -->
+<!-- Rules of Variables 6 -->
 <?php
-echo "<h2>This is Tutorial 6 </h2>";
+echo "<h2> Rules of Variables </h2>";
 echo "
     <div>
-        <h3>More on PHP Variables</h3>
         <h4>Rules for creating variables in php</h4>
         <ul>
             <li>Starts with a $ sign</li>
@@ -41,9 +40,9 @@ echo $name5;
 ?>
 
 <!-- 3 -->
-<!-- Data Types -->
+<!-- Data Types 7 -->
 <?php
-echo "<h2>This is Tutorial 7 </h2>";
+echo "<h2> Data Types </h2>";
 $name = "Harry";
 $income = 200;
 
@@ -111,9 +110,9 @@ echo var_dump($name);
 ?>
 
 <!-- 4 -->
-<!-- String Func -->
+<!-- String Func 8 -->
 <?php
-echo "<h2>This is Tutorial 8 </h2>";
+echo "<h2> String Func </h2>";
 $name = "Harry is a good boy";
 echo $name;
 echo "<br>";
@@ -138,9 +137,9 @@ echo "</pre>";
 ?>
 
 <!-- 5 -->
-<!-- Operators in PHP -->
+<!-- Operators in PHP 9 -->
 <?php
-echo "<h2>This is Tutorial 9 </h2>";
+echo "<h2> Operators in PHP </h2>";
 /* Operators in PHP
 1. Arithmetic Operators
 2. Assignment Operators
@@ -271,9 +270,9 @@ echo "Done";
 ?>
 
 <!-- 7 -->
-<!-- Switch  -->
+<!-- Switch Case 11 -->
 <?php
-echo "<h2>This is Tutorial 11 </h2>";
+echo "<h2> Switch Case </h2>";
 $age = 56;
 
 switch ($age) {
@@ -296,9 +295,9 @@ switch ($age) {
 ?>
 
 <!-- 8 -->
-<!-- While Loop -->
+<!-- While Loop 12 -->
 <?php
-echo "<h2>This is Tutorial 12 </h2>";
+echo "<h2> While Loop </h2>";
 echo "while loops in php";
 echo "<br>";
 
@@ -326,9 +325,9 @@ while ($i < 5) {
 ?>
 
 <!-- 9 -->
-<!-- for loop -->
+<!-- for loop 13 -->
 <?php
-echo "<h2>This is Tutorial 13 </h2>";
+echo "<h2> for loop </h2>";
 echo "This is for loop in action <br>";
 
 for ($index = 1; $index < 6; $index++) {
@@ -345,9 +344,9 @@ echo "For loop has ended";
 ?>
 
 <!-- 10 -->
-<!-- Do while loops -->
+<!-- Do while loops 14 -->
 <?php
-echo "<h2>This is Tutorial 14 </h2>";
+echo "<h2> Do while loops </h2>";
 echo "Welcome to do while loops <br>";
 
 /*
@@ -365,9 +364,9 @@ do {
 ?>
 
 <!-- 11 -->
-<!-- Foreach loops -->
+<!-- Foreach loops 15 -->
 <?php
-echo "<h2>This is Tutorial 15 </h2>";
+echo "<h2> Foreach loops </h2>";
 echo "Welcome to the world of foreach loops <br>";
 $arr = array("Bananas", "Apples", "Harpic", "Bread", "Butter");
 
@@ -384,9 +383,9 @@ foreach ($arr as  $value) {
 ?>
 
 <!-- 12 -->
-<!-- Function -->
+<!-- Function 16 -->
 <?php
-echo "<h2>This is Tutorial 16 </h2>";
+echo "<h2> Function </h2>";
 echo "Welcome to php tutorial on functions <br>";
 
 function processMarks($marksArr)
@@ -421,9 +420,9 @@ echo "Total marks scored by Harry out of 600 is $sumMarksHarry";
 ?>
 
 <!-- 13 -->
-<!-- Dates -->
+<!-- Dates 17 -->
 <?php
-echo "<h2>This is Tutorial 17 </h2>";
+echo "<h2> Dates </h2>";
 echo "Welcome to the world of dates<br>";
 // $d = date("dS F Y");
 $d = date("dS F Y, g:i A");
@@ -439,9 +438,9 @@ echo "Copyright $year | All rights reserved <br>";
 ?>
 
 <!-- 14 -->
-<!-- Associative arrays -->
+<!-- Associative arrays 18 -->
 <?php
-echo "<h2>This is Tutorial 18 </h2>";
+echo "<h2> Associative arrays </h2>";
 echo "Welcome to associative arrays in php ";
 // These are called indexed arrays:
 // $arr = array('this', 'that', 'what');
@@ -466,9 +465,9 @@ foreach ($favCol as $key => $value) {
 ?>
 
 <!-- 15 -->
-<!-- Dimensional arrays -->
+<!-- Dimensional arrays 19 -->
 <?php
-echo "<h2>This is Tutorial 19 </h2>";
+echo "<h2> Dimensional arrays</h2>";
 echo "Welcome to multi dimensional arrays in php <br>";
 
 // Creating a 2 dimensional array
@@ -499,9 +498,9 @@ for ($i = 0; $i < count($multiDim); $i++) {
 ?>
 
 <!-- 16 -->
-<!-- local/global Varable in php -->
+<!-- local/global Varable in php 20 -->
 <?php
-echo "<h2>This is Tutorial 20 </h2>";
+echo "<h2>local/global Varable in php </h2>";
 echo "Welcome to scope and local/global vars in php<br>";
 $a = 98; // Global Variable
 $b = 9;
@@ -525,3 +524,130 @@ echo var_dump($GLOBALS["b"]);
 ?>
 
 <!-- 17 -->
+<!-- Enter the Data By Form 21 -->
+<h2> Enter the Data By Form </h2>
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $email = $_POST['email'];
+    $password = $_POST['pass'];
+    echo " Your Email  $email  and password $password <br> ";
+    // Submit these to a database
+}
+?>
+<form action="/cwhphp/All in one.php" method="post">
+    <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
+    </div>
+    <div class="form-group">
+        <label for="pass">Password</label>
+        <input type="password" class="form-control" id="pass" name="pass">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<!-- 18 -->
+<!-- Connected to a Database 24 -->
+<?php
+echo "<h2>Connected to a Database</h2>";
+/* 
+Ways to connect to a MySQL Database
+1. MySQLi extension
+2. PDO
+*/
+
+// Connecting to the Database
+$servername = "localhost";
+$username = "root";
+$password = "";
+// $database = "Atul";
+
+// Create a connection
+$conn = mysqli_connect($servername, $username, $password);
+
+// Die if connection was not successful
+if (!$conn){
+    // die("Sorry we failed to connect: ". mysqli_connect_error());
+}
+else{
+    echo "Connection was successful<br>";
+}
+// Create a db
+$sql = "CREATE DATABASE Atul";
+$result = mysqli_query($conn, $sql);
+
+// Variables to be inserted into the table
+$name = "Vikrant";
+$destination = "Russia";
+
+// Sql query to be executed
+$sql = "INSERT INTO `phptrip` (`name`, `dest`) VALUES ('$name', '$destination')";
+$result = mysqli_query($conn, $sql);
+
+// Check for the database creation success
+if($result){
+    echo "The db was created successfully!<br>";
+}
+else{
+    echo "The db was not created successfully because of this error ---> ". mysqli_error($conn);
+}
+?>
+
+<!-- 19 -->
+<!-- Connecting to the Database 29 -->
+<?php
+echo "<h2> Connecting to the Database </h2>";
+$servername = "localhost";
+$username = "root";
+$password = "";
+// $database = "dbharry";
+
+// Create a connection
+$conn = mysqli_connect($servername, $username, $password);
+// Die if connection was not successful
+if (!$conn){
+    die("Sorry we failed to connect: ". mysqli_connect_error());
+}
+else{
+    echo "Connection was successful<br>";
+}
+
+$sql = "SELECT * FROM `phptrip`";
+$result = mysqli_query($conn, $sql);
+
+// Find the number of records returned
+$num = mysqli_num_rows($result);
+echo $num;
+echo " records found in the DataBase<br>";
+// Display the rows returned by the sql query
+if($num> 0){
+    // $row = mysqli_fetch_assoc($result);
+    // echo var_dump($row);
+    // echo "<br>";
+    // $row = mysqli_fetch_assoc($result);
+    // echo var_dump($row);
+    // echo "<br>";
+    // $row = mysqli_fetch_assoc($result);
+    // echo var_dump($row);
+    // echo "<br>";
+    // $row = mysqli_fetch_assoc($result);
+    // echo var_dump($row);
+    // echo "<br>";
+    // $row = mysqli_fetch_assoc($result);
+    // echo var_dump($row);
+    // echo "<br>";
+    // $row = mysqli_fetch_assoc($result);
+    // echo var_dump($row);
+    // echo "<br>";
+    // $row = mysqli_fetch_assoc($result);
+    // echo var_dump($row);
+    // echo "<br>";
+
+    // We can fetch in a better way using the while loop
+    while($row = mysqli_fetch_assoc($result)){
+        // echo var_dump($row);
+        echo $row['sno'] .  ". Hello ". $row['name'] ." Welcome to ". $row['dest'];
+        echo "<br>";
+    }
+}
+?>

@@ -127,7 +127,12 @@ if ($salary >= 30000) {
     <input type="submit" name="submit">
 </form>
 <?php
-$val1 = $_POST['val1'];
-$val2 = $_POST['val2'];
-echo "Sum of " . ($val1 + $val2);
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $val1 = $_POST['val1'];
+    $val2 = $_POST['val2'];
+    echo "Sum of " . ($val1 + $val2);
+} else {
+    echo "Enter The Number for Sum of Two Nuber";
+}
 ?>
