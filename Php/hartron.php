@@ -1,4 +1,5 @@
 <!-- 1 -->
+<!-- Operators in php -->
 <?php
 echo "<h2> Operators in php</h2>";
 $a = 10;
@@ -10,6 +11,7 @@ echo "Division of two number = " . ($a / $b) . "<br>";
 echo "Mod of two number = " . ($a % $b) . "<br>";
 ?>
 <!-- 2 -->
+<!-- Relational operators -->
 <?php
 echo "<h2>Relational operators</h2>";
 // Greater than between Two number
@@ -38,8 +40,8 @@ if ($e = 0) {
 }
 ?>
 <!-- 3 -->
+<!-- Greter than between 3 number -->
 <?php
-// Greter than between 3 number
 echo "<h4>Wap to check Greter than between 3 number</h4>";
 
 $f = 10;
@@ -56,8 +58,8 @@ if ($f > $g && $f > $h) {
 }
 ?>
 <!-- 4 -->
+<!-- Marks -->
 <?php
-// Marks
 echo "<h4>Marks</h4>";
 $result = 20;
 if ($result = 90) {
@@ -77,8 +79,8 @@ if ($result = 90) {
 }
 ?>
 <!-- 5 -->
+<!-- Age Program By Girl -->
 <?php
-// Age Program By Girl
 echo "<h4>Age</h4>";
 $age = 20;
 if ($age >= 70) {
@@ -90,8 +92,8 @@ if ($age >= 70) {
 }
 ?>
 <!-- 6 -->
+<!-- Employ -->
 <?php
-// Employ
 echo "<h4>Employ</h4>";
 $salary = 100000;
 if ($salary >= 30000) {

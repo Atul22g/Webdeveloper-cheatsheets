@@ -1,25 +1,30 @@
+<!-- 1 -->
+<!-- Variables -->
 <?php
 echo "<h1>PHP Tutuials </h1>";
 echo "<h2>This is Tutorial 5 </h2>";
 
-// Variables are containers for storing information
-// Starts with a $
-// Variables are case sensitive
+echo '1. Variables are containers for storing information<br>';
+echo '2. Starts with a $<br>';
+echo '3. Variables are case sensitive<br><br>';
 
 $name = "Shubham";
 $namE = "Capital wala Shubham";
 $income = 200.8;
 
 echo "This guy is $name and his income is Rs. $income<br>";
+// Different between 2 Variables
 echo "$namE is a good boy<br>";
 echo "$name is the real gangsta<br>";
 ?>
 
+<!-- 2 -->
+<!-- Rules of Variables -->
 <?php
 echo "<h2>This is Tutorial 6 </h2>";
 echo "
     <div>
-        <h2>More on PHP Variables</h2>
+        <h3>More on PHP Variables</h3>
         <h4>Rules for creating variables in php</h4>
         <ul>
             <li>Starts with a $ sign</li>
@@ -30,11 +35,13 @@ echo "
         </ul>
     </div>
     ";
-echo "<h3> Crete a Variable </h3>";
+echo "<h4> Crete a Variable </h4>";
 $name5 = 'harry';
 echo $name5;
 ?>
 
+<!-- 3 -->
+<!-- Data Types -->
 <?php
 echo "<h2>This is Tutorial 7 </h2>";
 $name = "Harry";
@@ -96,13 +103,15 @@ echo $friends[2];
 echo "<br>";
 echo $friends[3];
 echo "<br>";
-//echo $friends[4]; // will throw an error as the size of array is 4
+// echo $friends[4]; // will throw an error as the size of array is 4
 
 // NULL
 $name = NULL;
 echo var_dump($name);
 ?>
 
+<!-- 4 -->
+<!-- String Func -->
 <?php
 echo "<h2>This is Tutorial 8 </h2>";
 $name = "Harry is a good boy";
@@ -128,6 +137,8 @@ echo ltrim("    this is a good boy     ");
 echo "</pre>";
 ?>
 
+<!-- 5 -->
+<!-- Operators in PHP -->
 <?php
 echo "<h2>This is Tutorial 9 </h2>";
 /* Operators in PHP
@@ -215,6 +226,8 @@ echo var_dump(!$m);
 echo "<br>";
 ?>
 
+<!-- 6 -->
+<!-- If else Condition -->
 <?php
 echo "<h2>This is Tutorial 10 </h2>";
 // $a = 665;
@@ -257,6 +270,8 @@ if ($age > 13) {
 echo "Done";
 ?>
 
+<!-- 7 -->
+<!-- Switch  -->
 <?php
 echo "<h2>This is Tutorial 11 </h2>";
 $age = 56;
@@ -280,16 +295,21 @@ switch ($age) {
 }
 ?>
 
+<!-- 8 -->
+<!-- While Loop -->
 <?php
 echo "<h2>This is Tutorial 12 </h2>";
 echo "while loops in php";
 echo "<br>";
+
+// Nomal way
 // echo 1;echo"<br>";
 // echo 2;echo "<br>";
 // echo 3;echo "<br>";
 // echo 4;echo "<br>";
 // echo 5;echo "<br>";
 
+// Better Way
 /* 
 while (condition){
     some lines of code here;
@@ -305,6 +325,8 @@ while ($i < 5) {
 }
 ?>
 
+<!-- 9 -->
+<!-- for loop -->
 <?php
 echo "<h2>This is Tutorial 13 </h2>";
 echo "This is for loop in action <br>";
@@ -322,6 +344,8 @@ for ($index = 1; $index < 6; $index++) {
 echo "For loop has ended";
 ?>
 
+<!-- 10 -->
+<!-- Do while loops -->
 <?php
 echo "<h2>This is Tutorial 14 </h2>";
 echo "Welcome to do while loops <br>";
@@ -338,14 +362,16 @@ do {
     echo "$i <br>";
     $i++;
 } while ($i < 5);
-
 ?>
 
+<!-- 11 -->
+<!-- Foreach loops -->
 <?php
 echo "<h2>This is Tutorial 15 </h2>";
 echo "Welcome to the world of foreach loops <br>";
 $arr = array("Bananas", "Apples", "Harpic", "Bread", "Butter");
 
+// Normal way
 // for ($i=0; $i < count($arr); $i++) { 
 //     echo $arr[$i];
 //     echo "<br>";
@@ -357,6 +383,8 @@ foreach ($arr as  $value) {
 }
 ?>
 
+<!-- 12 -->
+<!-- Function -->
 <?php
 echo "<h2>This is Tutorial 16 </h2>";
 echo "Welcome to php tutorial on functions <br>";
@@ -392,6 +420,8 @@ echo "Total marks scored by Rohan out of 600 is $sumMarks <br>";
 echo "Total marks scored by Harry out of 600 is $sumMarksHarry";
 ?>
 
+<!-- 13 -->
+<!-- Dates -->
 <?php
 echo "<h2>This is Tutorial 17 </h2>";
 echo "Welcome to the world of dates<br>";
@@ -408,6 +438,8 @@ echo "<br>";
 echo "Copyright $year | All rights reserved <br>";
 ?>
 
+<!-- 14 -->
+<!-- Associative arrays -->
 <?php
 echo "<h2>This is Tutorial 18 </h2>";
 echo "Welcome to associative arrays in php ";
@@ -433,6 +465,8 @@ foreach ($favCol as $key => $value) {
 }
 ?>
 
+<!-- 15 -->
+<!-- Dimensional arrays -->
 <?php
 echo "<h2>This is Tutorial 19 </h2>";
 echo "Welcome to multi dimensional arrays in php <br>";
@@ -463,6 +497,9 @@ for ($i = 0; $i < count($multiDim); $i++) {
     echo "<br>";
 }
 ?>
+
+<!-- 16 -->
+<!-- local/global Varable in php -->
 <?php
 echo "<h2>This is Tutorial 20 </h2>";
 echo "Welcome to scope and local/global vars in php<br>";
@@ -486,3 +523,5 @@ echo "<br>";
 echo var_dump($GLOBALS["a"]);
 echo var_dump($GLOBALS["b"]);
 ?>
+
+<!-- 17 -->
