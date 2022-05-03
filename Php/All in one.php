@@ -526,15 +526,7 @@ echo var_dump($GLOBALS["b"]);
 <!-- 17 -->
 <!-- Enter the Data By Form 21 -->
 <h2> Enter the Data By Form </h2>
-<?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = $_POST['email'];
-    $password = $_POST['pass'];
-    echo " Your Email  $email  and password $password <br> ";
-    // Submit these to a database
-}
-?>
-<form action="/cwhphp/All in one.php" method="post">
+<form action="/atul/All in one.php" method="post">
     <div class="form-group">
         <label for="email">Email address</label>
         <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
@@ -546,108 +538,54 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
-<!-- 18 -->
-<!-- Connected to a Database 24 -->
 <?php
-echo "<h2>Connected to a Database</h2>";
-/* 
-Ways to connect to a MySQL Database
-1. MySQLi extension
-2. PDO
-*/
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Create a variable 
+    $email = $_POST['email'];
+    $pass = $_POST['pass'];
 
-// Connecting to the Database
-$servername = "localhost";
-$username = "root";
-$password = "";
-// $database = "Atul";
+    // Connecting to the Database
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "PhpTut";
 
-// Create a connection
-$conn = mysqli_connect($servername, $username, $password);
+    // Create a connection
+    $conn = mysqli_connect($servername, $username, $password);
+    $conn2 = mysqli_connect($servername, $username, $password, $database);
+    // Die if connection was not successful
+    if (!$conn) {
+        die("Sorry we failed to connect: " . mysqli_connect_error());
+    } else {
+        // Create a db
+        // $DataBase = "CREATE DATABASE PhpTut";
+        // execute 
+        // mysqli_query($conn, $DataBase);
 
-// Die if connection was not successful
-if (!$conn){
-    // die("Sorry we failed to connect: ". mysqli_connect_error());
-}
-else{
-    echo "Connection was successful<br>";
-}
-// Create a db
-$sql = "CREATE DATABASE Atul";
-$result = mysqli_query($conn, $sql);
+        // Create a table in the db
+        // $table = "CREATE TABLE `phptut`.`contents` ( `Sr. No` BIGINT(255) NOT NULL AUTO_INCREMENT , `Email` TEXT NOT NULL , `Password` TEXT NOT NULL , PRIMARY KEY (`Sr. No`)) ENGINE = InnoDB;";
+        // execute 
+        // mysqli_query($conn, $table);
 
-// Variables to be inserted into the table
-$name = "Vikrant";
-$destination = "Russia";
 
-// Sql query to be executed
-$sql = "INSERT INTO `phptrip` (`name`, `dest`) VALUES ('$name', '$destination')";
-$result = mysqli_query($conn, $sql);
+        // Insert the Date to Database
+        $InsertData = "INSERT INTO `contents` (`Email`, `Password`) VALUES ('$email', '$pass');";
+        // execute 
+        mysqli_query($conn2, $InsertData);
 
-// Check for the database creation success
-if($result){
-    echo "The db was created successfully!<br>";
-}
-else{
-    echo "The db was not created successfully because of this error ---> ". mysqli_error($conn);
-}
-?>
+        // Show the Data
+        $show = "SELECT * FROM `contents`";
+        $showquery = mysqli_query($conn2, $show);
 
-<!-- 19 -->
-<!-- Connecting to the Database 29 -->
-<?php
-echo "<h2> Connecting to the Database </h2>";
-$servername = "localhost";
-$username = "root";
-$password = "";
-// $database = "dbharry";
+        // Find the number of records returned
+        $Show = mysqli_num_rows($showquery);
 
-// Create a connection
-$conn = mysqli_connect($servername, $username, $password);
-// Die if connection was not successful
-if (!$conn){
-    die("Sorry we failed to connect: ". mysqli_connect_error());
-}
-else{
-    echo "Connection was successful<br>";
-}
-
-$sql = "SELECT * FROM `phptrip`";
-$result = mysqli_query($conn, $sql);
-
-// Find the number of records returned
-$num = mysqli_num_rows($result);
-echo $num;
-echo " records found in the DataBase<br>";
-// Display the rows returned by the sql query
-if($num> 0){
-    // $row = mysqli_fetch_assoc($result);
-    // echo var_dump($row);
-    // echo "<br>";
-    // $row = mysqli_fetch_assoc($result);
-    // echo var_dump($row);
-    // echo "<br>";
-    // $row = mysqli_fetch_assoc($result);
-    // echo var_dump($row);
-    // echo "<br>";
-    // $row = mysqli_fetch_assoc($result);
-    // echo var_dump($row);
-    // echo "<br>";
-    // $row = mysqli_fetch_assoc($result);
-    // echo var_dump($row);
-    // echo "<br>";
-    // $row = mysqli_fetch_assoc($result);
-    // echo var_dump($row);
-    // echo "<br>";
-    // $row = mysqli_fetch_assoc($result);
-    // echo var_dump($row);
-    // echo "<br>";
-
-    // We can fetch in a better way using the while loop
-    while($row = mysqli_fetch_assoc($result)){
-        // echo var_dump($row);
-        echo $row['sno'] .  ". Hello ". $row['name'] ." Welcome to ". $row['dest'];
-        echo "<br>";
+        if ($Show > 0) {
+            while($row = mysqli_fetch_assoc($showquery)){
+                    echo $row['Sr. No'] .  ". Email is " . $row['Email'] . " and password is " . $row['Password'];
+                echo "<br>";
+            }
+        }
     }
 }
 ?>
