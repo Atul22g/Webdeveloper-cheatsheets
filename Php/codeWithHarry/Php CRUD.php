@@ -10,7 +10,7 @@ $password = "";
 $database = "notes";
 
 // Create a connection
-$conn = mysqli_connect($servername, $username, $password, $database);
+$conn = mysqli_connect("localhost","root" ,"");
 
 // Die if connection was not successful
 if (!$conn){
